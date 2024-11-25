@@ -1,0 +1,50 @@
+[project]
+name = "sirius"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "jupyterlab>=4.3.1",
+    "mypy>=1.13.0",
+    "ruff>=0.8.0",
+    "sirius",
+]
+
+[tool.ruff.lint]
+preview = true
+select = [
+  "I",
+  "F",
+  "E",
+  "W",
+  "N",
+  "PL",
+  "PT",
+  "ANN",
+  "Q",
+  "ARG",
+  "PD",
+  "NPY",
+  "FAST",
+  "RUF",
+  "PERF",
+]
+ignore = ["PLR0913", "PLR0917", "PD901"]
+
+[tool.ruff.format]
+preview = true
+quote-style = "double"
+
+[tool.uv.sources]
+sirius = { workspace = true }
+
+[tool.mypy]
+ignore_missing_imports = true
+
+[tool.ruff]
+line-length = 120
+

@@ -2,7 +2,7 @@ def variance(array: list[int | float]) -> float:
     raise NotImplementedError
 
 
-def standard_deviation(array: list[int | float]) -> float:
+def stdev(array: list[int | float]) -> float:
     raise NotImplementedError
 
 

@@ -1190,7 +1190,6 @@ dev = [
     { name = "jupyterlab", specifier = ">=4.3.1" },
     { name = "mypy", specifier = ">=1.13.0" },
     { name = "ruff", specifier = ">=0.8.0" },
-    { name = "sirius", virtual = "." },
 ]
 
 [[package]]

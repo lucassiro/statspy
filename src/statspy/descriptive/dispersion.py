@@ -27,6 +27,10 @@ def stdev(array: list[int | float]) -> float:
     return math.sqrt(variance(array=array))
 
 
+def standard_error(array: list[int | float]) -> float:
+    return stdev(array=array) / math.sqrt(len(array))
+
+
 def range(array: list[int | float]) -> float:
     return max(array) - min(array)
 

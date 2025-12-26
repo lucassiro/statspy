@@ -1,6 +1,8 @@
 from statspy.descriptive.dispersion import stdev
 from statspy.descriptive.location import mean
 
+__all__ = ["correlation", "covariance"]
+
 
 def covariance(x: list, y: list) -> float:
     if len(x) != len(y):

@@ -2,6 +2,16 @@ import math
 
 import statspy as sp
 
+__all__ = [
+    "interquartile_range",
+    "percentiles",
+    "quartiles",
+    "range",
+    "standard_error",
+    "stdev",
+    "variance",
+]
+
 
 def variance(array: list[int | float], ddof: int = 0) -> float:
     mean = sp.mean(array)

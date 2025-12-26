@@ -1,5 +1,13 @@
 import math
 
+__all__ = [
+    "geometric_mean",
+    "mean",
+    "median",
+    "mode",
+    "root_mean_square",
+]
+
 
 def mean(array: list[int | float]) -> float:
     return sum(array) / len(array)
@@ -40,5 +48,5 @@ def geometric_mean(array: list[int | float]) -> float:
 def root_mean_square(array: list[int | float]) -> float:
     sum_of_squares = 0.0
     for value in array:
-        sum_of_squares += value ** 2
+        sum_of_squares += value**2
     return math.sqrt(sum_of_squares / len(array))

@@ -3,32 +3,18 @@ import math
 import statspy as sp
 
 
-def pvariance(array: list[int | float]) -> float:
+def variance(array: list[int | float], ddof: int = 0) -> float:
     mean = sp.mean(array)
-    sum_of_squares = 0.0
-    for i in array:
-        sum_of_squares += (i - mean) ** 2
-    return sum_of_squares / len(array)
+    sum_of_squares = sum([(i - mean) ** 2 for i in array])
+    return sum_of_squares / (len(array) - ddof)
 
 
-def variance(array: list[int | float]) -> float:
-    mean = sp.mean(array)
-    sum_of_squares = 0.0
-    for i in array:
-        sum_of_squares += (i - mean) ** 2
-    return sum_of_squares / (len(array) - 1)
+def stdev(array: list[int | float], ddof: int = 0) -> float:
+    return math.sqrt(variance(array=array, ddof=ddof))
 
 
-def pstdev(array: list[int | float]) -> float:
-    return math.sqrt(pvariance(array=array))
-
-
-def stdev(array: list[int | float]) -> float:
-    return math.sqrt(variance(array=array))
-
-
-def standard_error(array: list[int | float]) -> float:
-    return stdev(array=array) / math.sqrt(len(array))
+def standard_error(array: list[int | float], ddof: int = 0) -> float:
+    return stdev(array=array, ddof=ddof) / math.sqrt(len(array))
 
 
 def range(array: list[int | float]) -> float:

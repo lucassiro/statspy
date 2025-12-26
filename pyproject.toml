@@ -3,27 +3,43 @@ name = "statspy"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-authors = [
-    { name = "Lucas Siqueira", email = "siqueiraq@gmail.com" }
-]
+authors = [{ name = "Lucas Siqueira", email = "siqueiraq@gmail.com" }]
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "matplotlib>=3.10.7",
+    "numpy>=2.3.5",
+    "scipy>=1.16.3",
+    "seaborn>=0.13.2",
+    "statsmodels>=0.14.5",
+]
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [dependency-groups]
-dev = [
-    "jupyterlab>=4.4.3",
-    "mypy>=1.16.0",
-    "ruff>=0.11.13",
-]
+dev = ["jupyterlab>=4.4.3", "mypy>=1.16.0", "ruff>=0.11.13"]
 
 [tool.ruff.lint]
 preview = true
-select = [ "I", "F", "E", "W", "N", "PL", "PT", "ANN", "Q", "ARG", "PD", "NPY", "FAST", "RUF", "PERF"]
-ignore = ["PLR0913", "PLR0917", "PD901"]
+select = [
+    "I",
+    "F",
+    "E",
+    "W",
+    "N",
+    "PL",
+    "PT",
+    "ANN",
+    "Q",
+    "ARG",
+    "PD",
+    "NPY",
+    "FAST",
+    "RUF",
+    "PERF",
+]
+ignore = ["PLR0913", "PLR0917", "PD901", "F403"]
 
 [tool.ruff.format]
 preview = true

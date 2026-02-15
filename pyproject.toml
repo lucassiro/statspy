@@ -1,6 +1,6 @@
 [project]
 name = "statspy"
-version = "0.1.0"
+version = "0.2.0"
 description = "Add your description here"
 readme = "README.md"
 authors = [{ name = "Lucas Siqueira", email = "siqueiraq@gmail.com" }]
@@ -8,48 +8,50 @@ requires-python = ">=3.13"
 dependencies = [
     "matplotlib>=3.10.7",
     "numpy>=2.3.5",
+    "pytest>=9.0.2",
+    "scikit-learn>=1.8.0",
     "scipy>=1.16.3",
     "seaborn>=0.13.2",
     "statsmodels>=0.14.5",
 ]
 
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-
 [dependency-groups]
-dev = ["jupyterlab>=4.4.3", "mypy>=1.16.0", "ruff>=0.11.13"]
+dev = ["jupyterlab>=4.4.3", "ruff>=0.11.13", "ty>=0.0.8"]
 
-[tool.ruff.lint]
-preview = true
-select = [
-    "I",
-    "F",
-    "E",
-    "W",
-    "N",
-    "PL",
-    "PT",
-    "ANN",
-    "Q",
-    "ARG",
-    "PD",
-    "NPY",
-    "FAST",
-    "RUF",
-    "PERF",
-]
-ignore = ["PLR0913", "PLR0917", "PD901", "F403"]
-
-[tool.ruff.format]
-preview = true
-quote-style = "double"
+[build-system]
+requires = ["uv_build>=0.10.2,<0.11.0"]
+build-backend = "uv_build"
 
 [tool.uv.sources]
 statspy = { workspace = true }
 
-[tool.mypy]
-ignore_missing_imports = true
-
 [tool.ruff]
 line-length = 120
+exclude = [
+    ".eggs",
+    ".git",
+    ".ipynb_checkpoints",
+    ".ruff_cache",
+    ".venv",
+    ".vscode",
+]
+
+[tool.ruff.lint]
+select = ["I", "F", "E", "W", "N", "PL", "ANN", "Q", "ARG", "RUF", "PERF"]
+preview = true
+ignore = []
+
+[tool.ruff.format]
+preview = true
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
+exclude = ["*.ipynb"]
+
+[tool.ty.rules]
+all = "error"
+
+[tool.pytest]
+minversion = "9.0"
+addopts = ["-ra", "-q"]
+testpaths = ["tests"]

@@ -1,19 +1,12 @@
-import math
-
-__all__ = [
-    "geometric_mean",
-    "mean",
-    "median",
-    "mode",
-    "root_mean_square",
-]
-
-
-def mean(array: list[int | float]) -> float:
+def mean(array: list[float]) -> float:
     return sum(array) / len(array)
 
 
-def median(array: list[int | float]) -> int | float:
+def weighted_mean(samples: list[float], weights: list[float]) -> float:
+    return sum([s * w for s, w in zip(samples, weights)]) / sum(weights)
+
+
+def median(array: list[float]) -> float:
     array.sort()
     n = len(array)
     if n % 2 == 0:
@@ -22,7 +15,7 @@ def median(array: list[int | float]) -> int | float:
         return array[n // 2]
 
 
-def mode(array: list[int | float]) -> list:
+def mode(array: list[float]) -> list[float]:
     frequencies: dict[int | float, int] = dict()
     for value in array:
         if value in frequencies:
@@ -38,15 +31,13 @@ def mode(array: list[int | float]) -> list:
     return modes
 
 
-def geometric_mean(array: list[int | float]) -> float:
+def geometric_mean(array: list[float]) -> float:
     product = 1.0
     for value in array:
         product *= value
-    return math.sqrt(product)
+    return (product) ** 0.5
 
 
-def root_mean_square(array: list[int | float]) -> float:
-    sum_of_squares = 0.0
-    for value in array:
-        sum_of_squares += value**2
-    return math.sqrt(sum_of_squares / len(array))
+def root_mean_square(array: list[float]) -> float:
+    sum_of_squares = sum([i**2 for i in array])
+    return (sum_of_squares / len(array)) ** 0.5

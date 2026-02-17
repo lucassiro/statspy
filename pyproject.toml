@@ -22,6 +22,9 @@ dev = ["jupyterlab>=4.4.3", "ruff>=0.11.13", "ty>=0.0.8"]
 requires = ["uv_build>=0.10.2,<0.11.0"]
 build-backend = "uv_build"
 
+[tool.uv.workspace]
+members = ["."]
+
 [tool.uv.sources]
 statspy = { workspace = true }
 
@@ -46,7 +49,7 @@ preview = true
 quote-style = "double"
 indent-style = "space"
 line-ending = "auto"
-exclude = ["*.ipynb"]
+exclude = []
 
 [tool.ty.rules]
 all = "error"
